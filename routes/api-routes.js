@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-const db = require("../../../UTA-HOU-FSF-PT-06-2020-U-C/Class-Content/14-Full-Stack/04-Important/Sequelize-Passport-Example/models");
-const passport = require("../../../UTA-HOU-FSF-PT-06-2020-U-C/Class-Content/14-Full-Stack/04-Important/Sequelize-Passport-Example/config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
