@@ -96,3 +96,7 @@ ul li:nth-child(6n+6) a:before
 {
   background: #8CEF74;
 }
+ul li:nth-child(6n+7) a:before
+{
+  background: #7ddd64;
+}

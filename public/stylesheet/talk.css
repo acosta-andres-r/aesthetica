@@ -1,0 +1,33 @@
+:root {
+	background: #A8FF8F;
+};
+.header {
+background-color: #FFFFE3;
+display: flex;
+justify-content: center;
+border-radius: 50%;
+background-size: 55%;
+};
+/* .main {
+
+};
+.sidebar {
+
+};
+.convobar {
+
+};
+.textbar {
+
+};
+.send {
+
+}; */
+.button {
+	background-color: #FFFFE3;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(10, 10, 10); 
+};
+/* .footer {
+
+}; */
