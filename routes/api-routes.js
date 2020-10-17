@@ -50,37 +50,4 @@ module.exports = function (app) {
       });
     }
   });
-
-
-
-  //Our PEXELS API code. We pull images from here. 
-  const axios = require("axios");
-  let keyword = "fashion"
-  const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=20&page=1";
-  axios
-    .get(baseURL, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        Authorization: "563492ad6f9170000100000199d9e9a819a942398aa8d5dd20a55d0d"
-      }
-    })
-    .then(function (res) {
-
-
-      //Next page 
-      nextPage = res.data.next_page;
-      console.log(nextPage);
-
-
-      // Array with photo URLs to send to Browser
-      photosURL = res.data.photos.map((photo) => {
-        return photo.src.medium;
-
-
-      });
-      // To send to Browser
-      console.log(photosURL);
-    });
-
 }
