@@ -27,7 +27,7 @@ module.exports = function(app) {
 
   //make sure to add isAuthenticated
   app.get("/window_shop", (req, res) => {
-    res.render("window_shop", { sidenav: true, js: "sidebar" });
+    res.render("window_shop", { sidenav: true, js: "sidebar", wshop: true });
   });
 
   // app.get("/login", (req, res) => {
