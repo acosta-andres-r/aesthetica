@@ -11,6 +11,8 @@ form.login {
 .container{
   background: #E3FFC7;
   margin-top: 100px;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 h2{
