@@ -1,49 +1,97 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
-const passport = require("../config/passport");
+// const passport = require("../config/passport");
 
 
 module.exports = function (app) {
 
-    app.post("/api/explorer", (req, res) => {
+  // Post route to GET the 20 image URLs from PEXEL
+  app.post("/api/explorer", function (req, res) {
 
-        // req.search.keyword // ---> Request in this format
-        console.log(req.body.search);
+    // req.search.keyword // ---> Request in this format
+    console.log(req.body.search);
 
-        //Our PEXELS API code. We pull images from here. 
-        const axios = require("axios");
-        let keyword = req.body.search
-        // let keyword = req.search.keyword  //"fashion"
-        const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=20&page=1";
-        axios
-            .get(baseURL, {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                    Authorization: "563492ad6f9170000100000199d9e9a819a942398aa8d5dd20a55d0d"
-                }
-            })
-            .then(function (respond) {
-
-
-                //Next page 
-                nextPage = respond.data.next_page;
-                console.log(nextPage);
+    //Our PEXELS API code. We pull images from here. 
+    const axios = require("axios");
+    let keyword = req.body.search
+    // let keyword = req.search.keyword  //"fashion"
+    const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=20&page=1";
+    axios
+      .get(baseURL, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          Authorization: "563492ad6f9170000100000199d9e9a819a942398aa8d5dd20a55d0d"
+        }
+      })
+      .then(function (respond) {
 
 
-                // Array with photo URLs to send to Browser
-                photosURL = respond.data.photos.map((photo) => {
-                    return photo.src.medium;
+        //Next page 
+        nextPage = respond.data.next_page;
+        console.log(nextPage);
 
 
-                });
-                // To send to Browser
-                console.log(photosURL);
+        // Array with photo URLs to send to Browser
+        photos = respond.data.photos.map((photo) => {
+          return {
+            imageURL: photo.src.medium,
+            public_id: photo.id
+          };
 
-                res.json({
-                    photos: photosURL
-                });
+
+        });
+        // To send to Browser
+        console.log(photos);
+
+        res.json({
+          photos: photos
+        });
+      });
+  });
+
+
+  // POST route for saving a new image
+  app.post("/api/images", function (req, res) {
+
+    const imageToSave = {
+      imageURL: req.body.imageURL,
+      public_id: req.body.public_id,
+      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+    }
+
+    // Find out if image already exist for the user
+    db.Image
+      .count({ where: imageToSave })
+      .then(function (count) {
+
+        if (count === 0) {
+          // Save image if not exist
+          db.Image
+            .create(imageToSave)
+            .then(function (dbImage) {
+
+              console.log(dbImage);
+              res.json(dbImage);
             });
-    });
+        } else {
+          res.json();
+        }
+      })
+  });
 
+  // DELETE route for deleting images if user unfavorite the image
+  app.delete("/api/images", function (req, res) {
+    
+    const imageToDelete = {
+      public_id: req.body.public_id,
+      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+    }
+    
+    db.Image.destroy({
+      where: imageToDelete
+    }).then(function (dbImage) {
+      res.json(dbImage);
+    });
+  });
 }

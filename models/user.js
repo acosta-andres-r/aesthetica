@@ -31,5 +31,14 @@ module.exports = function(sequelize, DataTypes) {
       null
     );
   });
+
+  // Associating User with Image
+  // When an User is deleted, also delete any associated Images
+  User.associate = function(models) {
+    User.hasMany(models.Image, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
