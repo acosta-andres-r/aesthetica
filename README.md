@@ -10,7 +10,7 @@ Aesthetica is a mobile responsive, interactive app that bridges fashion and comm
 <li>Browse through the window shopping content and add your favorite images to your own virtual closet.</li>
   <li>Don't be shy to join the conversation and connect with others that shop similar styles.</li>
 <br><br></ul>
-***!COMPLETED APP SCREEN SHOTS GO HERE!***
+***!COMPLETED APP SCREEN SHOTS &/OR video walkthrough GO HERE!***
 
 ## Creators
 Visit the repositories of the Aesthetica creators:<br>
