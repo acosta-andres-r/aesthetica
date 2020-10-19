@@ -65,7 +65,7 @@ module.exports = function (app) {
         // To send to Browser
         console.log(photos);
 
-        res.render("window_shop", {photos: photos, sidenav: true, js: "sidebar" });
+        res.render("window_shop", {photos: photos, sidenav: true, js: "sidebar", js: "w_shop.js" });
 
       });
 
