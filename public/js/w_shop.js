@@ -1,8 +1,9 @@
-//Buttons for user searches :
+// Post to retrieve  images from Pexel image URLs
 
-$("#women's").on("click", function() {
+//Explore button to retrieve all images under the keyword: fashion
+$("#explore").on("click", function() {
     $.post("/api/explorer", {
-            search: "women's apparel"
+            search: "fashion"
         })
         .then((res) => {
             console.log(res);
@@ -13,22 +14,27 @@ $("#women's").on("click", function() {
         });
 })
 
+// //Buttons for women's apparel searches :
+
+// function womenApparel() {
 
 
 
-// Post to retrieve Pexel image URLs
-$("#explore").on("click", function() {
-$.post("/api/explorer", {
-    search: "fashion"
-})
-.then((res) => {
-    console.log(res);
-    // If there's an error, log the error
-})
-.catch(err => {
-    console.log(err);
-});
-})
+//     var clickAllWomen = $("#womenAll").on("click", function() {})
+//     var clickTops = $("Tops").on("click", function() {})
+//     var clickPants = $("Pants").on("click", function() {});
+//     var clickDresses = $("Dresses").on("click", function() {});
+//     var clickSkirts = $("Skirts").on("click", function() {});
+//     var clickCoats = $("Coats").on("click", function() {});
+//     var clickJackets = $("Jackets").on("click", function() {});
+//     var clickSporty = $("Sporty").on("click", function() {});
+//     var clickSwim = $("Bottoms").on("click", function() {});
+//     var clickLingerie = $("Lingerie").on("click", function() {});
+//     var Accessories = $("Accessories").on("click", function() {});
+//     var clickShoes = $("Shoes").on("click", function() {});
+
+//     womenApparel()
+
 
 
 
@@ -49,7 +55,7 @@ $.post("/api/explorer", {
 //         .catch(err => {
 //           console.log(err);
 //         });
-})
+// })
 
 // Post to delete an image 
 // $("#unfavorite").on("click", function(){
@@ -66,4 +72,4 @@ $.post("/api/explorer", {
 //     .then(function(response) {
 //       console.log(response);
 //     });
-})
+// })
