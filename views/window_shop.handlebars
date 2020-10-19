@@ -7,18 +7,19 @@
 
             {{!-- Importan UserID to be passed when favorite button is clicked --}}
             <h1 id="welcome" data-user-id="1">Welcome</h1>
-            <button id="explore">Explore</button>
-
-            <button id="unfavorite">Unfavorite</button>
-            <button id="logout">Logout</button>
+            <input class="form-control form-control-lg" type="text" placeholder="Search Aesthetica">
+            <button type="button" class="btn btn-dark" id="explore">Explore</button>
+            <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+            <button type="button" class="btn btn-dark" id="logout">Logout</button>
             <div class="row">
 
                 {{#each photos}}
                 
                 <div class="col-sm-3">
                     <img src="{{imageURL}}" alt="" class="w-100">
-                    <button id="favorite">Favorite</button>
+                    <button type="button" class="btn btn-dark" id="favorite">Add To Closet</button>
                 </div>
+
                 {{/each}}
 
 
