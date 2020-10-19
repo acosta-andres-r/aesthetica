@@ -9,10 +9,11 @@ form.login {
 
 
 .container{
-  background: #E3FFC7;
+  background: #9c9fa5;
   margin-top: 100px;
   border-radius: 25px;
   padding: 10px;
+  align-self: center;
 }
 
 h2{
