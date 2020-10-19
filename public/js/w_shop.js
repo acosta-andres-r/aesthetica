@@ -55,4 +55,4 @@ $("#logout").on("click", function () {
     .catch(err => {
       console.log(err);
     });
-})
+});
