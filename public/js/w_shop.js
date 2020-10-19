@@ -45,3 +45,14 @@ $("#unfavorite").on("click", function(){
       console.log(response);
     });
 })
+
+$("#logout").on("click", function() {
+  $.get("/logout")
+  .then(() => {
+    window.location.replace("/");
+    // If there's an error, log the error
+  })
+  .catch(err => {
+    console.log(err);
+  });
+})
