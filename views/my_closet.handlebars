@@ -1,4 +1,30 @@
 <div class="wrapper">
-{{> _sidenav }}
-<h1>jiasjds</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            {{> _sidenav }}
+        </div>
+        <div class="col-sm-9">
+
+            {{!-- Importan UserID to be passed when favorite button is clicked --}}
+            {{!--<h1 id="welcome" data-user-id="1">Welcome</h1>--}}
+            <h1>My Closet</h1>
+            <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+            <button type="button" class="btn btn-dark" id="logout">Logout</button>
+            <div class="row">
+
+                {{#each photos}}
+                
+                <div class="col-sm-3">
+                    <img src="{{imageURL}}" alt="" class="w-100">
+                    <button type="button" class="btn btn-dark" id="favorite">Add To Closet</button>
+                </div>
+
+                {{/each}}
+
+
+            </div>
+            
+        </div>
+    </div>
+
 </div>
