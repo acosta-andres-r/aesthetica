@@ -7,6 +7,12 @@ form.login {
   margin-top: 50px;
 }
 
+:root{
+  background: url(/img/closetA.png);
+}
+body{
+  background: url(/img/pic1.png);
+}
 
 .container{
   background: #9c9fa5;
