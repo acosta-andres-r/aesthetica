@@ -88,10 +88,22 @@ module.exports = function (app) {
       UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
     }
     
-    db.Image.destroy({
-      where: imageToDelete
-    }).then(function (dbImage) {
-      res.json(dbImage);
-    });
+    db.Image
+    .count({ where: imageToDelete })
+    .then(function (count) {
+
+      if (count != 0) {
+        // Delete image if not exist
+        db.Image.destroy({
+          where: imageToDelete
+        }).then(function (dbImage) {
+          res.json(dbImage);
+        });
+        
+      } else {
+        res.json();
+      }
+    })
+
   });
 }
