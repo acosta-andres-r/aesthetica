@@ -20,6 +20,10 @@ module.exports = function(app) {
     res.render("signup", { stylesheet: "login_signup", js: "signup" });
   });
 
+  app.get("/about", (req, res) => {
+    res.render("about", { stylesheet: "about" });
+  });
+
   //make sure to add isAuthenticated
   app.get("/my_closet", (req, res) => {
     res.render("my_closet", { sidenav: true, js: "sidebar" });
