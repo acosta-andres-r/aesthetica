@@ -45,7 +45,6 @@ module.exports = function (app) {
 
         res.render("my_closet", { photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
       })
-
   });
 
   //make sure to add isAuthenticated

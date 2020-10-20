@@ -1,9 +1,9 @@
 <div class="wrapper">
-    <div class="row">
-        <div class="col-sm-3">
+    <div>
+        <div>
             {{> _sidenav }}
         </div>
-        <div class="col-sm-9">
+        <div>
 
             {{!-- Importan UserID to be passed when favorite button is clicked --}}
             {{!--<h1 id="welcome" data-user-id="1">Welcome</h1>--}}
@@ -17,13 +17,14 @@
                 <div class="col-sm-3">
                     <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}">
                     <button type="button" class="btn btn-dark remove-from-closet">Remove</button>
+
                 </div>
 
                 {{/each}}
 
 
             </div>
-            
+
         </div>
     </div>
 
