@@ -13,7 +13,7 @@ module.exports = function (app) {
   });
 
   app.get("/login", (req, res) => {
-    res.render("login", { stylesheet: "login_signup" });
+    res.render("login", { stylesheet: "login_signup", js: "login" });
   });
 
   app.get("/signup", (req, res) => {
@@ -26,13 +26,32 @@ module.exports = function (app) {
 
   //make sure to add isAuthenticated
   app.get("/my_closet", (req, res) => {
-    res.render("my_closet", { sidenav: true, js: "sidebar" });
+
+    db.Image.findAll({
+      where: {
+        UserId: 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+      }
+    })
+      .then(function (dbImage) {
+        console.log(dbImage);
+
+        // Array with photo URLs to send to Browser
+        const photos = dbImage.map((photo) => {
+          return {
+            imageURL: photo.imageURL,
+            public_id: photo.public_id
+          }
+        });
+
+        res.render("my_closet", { photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
+      })
+
   });
 
   //make sure to add isAuthenticated
   app.get("/window_shop", (req, res) => {
-  
-  //Our PEXELS API code. We pull images from here
+
+    //Our PEXELS API code. We pull images from here
     const axios = require("axios");
     let keyword = "fashion";
     // let keyword = req.search.keyword  //"fashion"
@@ -54,7 +73,7 @@ module.exports = function (app) {
 
 
         // Array with photo URLs to send to Browser
-        photos = respond.data.photos.map((photo) => {
+        const photos = respond.data.photos.map((photo) => {
           return {
             imageURL: photo.src.large,
             public_id: photo.id
@@ -65,7 +84,7 @@ module.exports = function (app) {
         // To send to Browser
         console.log(photos);
 
-        res.render("window_shop", {photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
+        res.render("window_shop", { photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
 
       });
 
