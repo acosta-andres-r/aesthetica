@@ -16,24 +16,43 @@ $("#explore").on("click", function() {
 
 // //Buttons for women's apparel searches :
 
-// function womenApparel() {
+
+
+$(".women").on("click", function() {
+    var userClick = "women's" + " " + $(this).attr('id')
+    console.log("click")
+    console.log(userClick)
+    $.post("/api/explorer", {
+            search: userClick
+        })
+        .then((res) => {
+            console.log(res);
+            // If there's an error, log the error
+        })
+        .catch(err => {
+            console.log(err);
+        });
+})
 
 
 
-//     var clickAllWomen = $("#womenAll").on("click", function() {})
-//     var clickTops = $("Tops").on("click", function() {})
-//     var clickPants = $("Pants").on("click", function() {});
-//     var clickDresses = $("Dresses").on("click", function() {});
-//     var clickSkirts = $("Skirts").on("click", function() {});
-//     var clickCoats = $("Coats").on("click", function() {});
-//     var clickJackets = $("Jackets").on("click", function() {});
-//     var clickSporty = $("Sporty").on("click", function() {});
-//     var clickSwim = $("Bottoms").on("click", function() {});
-//     var clickLingerie = $("Lingerie").on("click", function() {});
-//     var Accessories = $("Accessories").on("click", function() {});
-//     var clickShoes = $("Shoes").on("click", function() {});
 
-//     womenApparel()
+
+$(".men").on("click", function() {
+    var userClick = "men's" + " " + $(this).attr('id')
+    console.log("click")
+    console.log(userClick)
+    $.post("/api/explorer", {
+            search: userClick
+        })
+        .then((res) => {
+            console.log(res);
+            // If there's an error, log the error
+        })
+        .catch(err => {
+            console.log(err);
+        });
+})
 
 
 
