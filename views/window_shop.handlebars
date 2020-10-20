@@ -1,73 +1,73 @@
 <div class="wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                {{> _sidenav }}
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        {{> _sidenav }}
+      </div>
+      <div class="col-sm-9">
+        {{!-- Importan UserID to be passed when favorite button is clicked --}}
+        <h1 id="welcome" data-user-id="1">Welcome</h1>
+        {{!-- Important UserID to be passed when favorite button is clicked --}}
+        <button type="button" class="btn btn-dark" id="explore">Explore</button>
+        <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+        <button type="button" class="btn btn-dark" id="logout">Logout</button>
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Women's
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <button class="dropdown-item women" type="button" id="Apparel"> All Apparel</button>
+            <button class="dropdown-item women" type="button" id="Top">Tops/Shirts</button>
+            <button class="dropdown-item women" type="button" id="Pants">Pants/Bottoms</button>
+            <button class="dropdown-item women" type="button" id="Dresses">Dresses</button>
+            <button class="dropdown-item women" type="button" id="Skirts">Skirts</button>
+            <button class="dropdown-item women" type="button" id="Coats">Coats</button>
+            <button class="dropdown-item women" type="button" id="Jackets">Jackets</button>
+            <button class="dropdown-item women" type="button" id="Sporty">SportsWear</button>
+            <button class="dropdown-item women" type="button" id="Swim">Swimsuits/Bikinis</button>
+            <button class="dropdown-item women" type="button" id="Lingerie">Lingerie/Intimates</button>
+            <button class="dropdown-item women" type="button" id="Accessories">Accessories</button>
+            <button class="dropdown-item women" type="button" id="Shoes">Shoes</button>
+          </div>
+          <div>
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Men's
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <button class="dropdown-item men" type="button" id="apparel">All Apparel</button>
+              <button class="dropdown-item men" type="button" id="tops">Tops/Shirts</button>
+              <button class="dropdown-item men" type="button" id="pants">Pants/Bottoms</button>
+              <button class="dropdown-item men" type="button" id="suits">Suits</button>
+              <button class="dropdown-item men" type="button" id="coats">Coats</button>
+              <button class="dropdown-item men" type="button" id="jackets">Jackets</button>
+              <button class="dropdown-item men" type="button" id="sporty">SportsWear</button>
+              <button class="dropdown-item men" type="button" id="swim">Swimsuits</button>
+              <button class="dropdown-item men" type="button" id="lingerie">Underwear</button>
+              <button class="dropdown-item men" type="button" id="accessories">Accessories</button>
+              <button class="dropdown-item men" type="button" id="shoes">Shoes</button>
             </div>
-            <div class="col-sm-9">
-                {{!-- Importan UserID to be passed when favorite button is clicked --}}
-                <h1 id="welcome" data-user-id="1">Welcome</h1>
-                {{!-- Important UserID to be passed when favorite button is clicked --}}
-                <button type="button" class="btn btn-dark" id="explore">Explore</button>
-                <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
-                <button type="button" class="btn btn-dark" id="logout">Logout</button>
-                <div class="btn-group" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Women's
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <button class="dropdown-item women" type="button" id="Apparel"> All Apparel</button>
-                        <button class="dropdown-item women" type="button" id="Top">Tops/Shirts</button>
-                        <button class="dropdown-item women" type="button" id="Pants">Pants/Bottoms</button>
-                        <button class="dropdown-item women" type="button" id="Dresses">Dresses</button>
-                        <button class="dropdown-item women" type="button" id="Skirts">Skirts</button>
-                        <button class="dropdown-item women" type="button" id="Coats">Coats</button>
-                        <button class="dropdown-item women" type="button" id="Jackets">Jackets</button>
-                        <button class="dropdown-item women" type="button" id="Sporty">SportsWear</button>
-                        <button class="dropdown-item women" type="button" id="Swim">Swimsuits/Bikinis</button>
-                        <button class="dropdown-item women" type="button" id="Lingerie">Lingerie/Intimates</button>
-                        <button class="dropdown-item women" type="button" id="Accessories">Accessories</button>
-                        <button class="dropdown-item women" type="button" id="Shoes">Shoes</button>
-                    </div>
-                    <div>
-                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Men's
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <button class="dropdown-item men" type="button" id="apparel">All Apparel</button>
-                            <button class="dropdown-item men" type="button" id="tops">Tops/Shirts</button>
-                            <button class="dropdown-item men" type="button" id="pants">Pants/Bottoms</button>
-                            <button class="dropdown-item men" type="button" id="suits">Suits</button>
-                            <button class="dropdown-item men" type="button" id="coats">Coats</button>
-                            <button class="dropdown-item men" type="button" id="jackets">Jackets</button>
-                            <button class="dropdown-item men" type="button" id="sporty">SportsWear</button>
-                            <button class="dropdown-item men" type="button" id="swim">Swimsuits</button>
-                            <button class="dropdown-item men" type="button" id="lingerie">Underwear</button>
-                            <button class="dropdown-item men" type="button" id="accessories">Accessories</button>
-                            <button class="dropdown-item men" type="button" id="shoes">Shoes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
-            <div class="row">
+      <div class="row">
 
 
-                {{#each photos}}
+        {{#each photos}}
 
-                <div class="col-sm-3">
-                    <img src="{{imageURL}}" alt="" class="w-100">
-                    <button type="button" class="btn btn-dark" id="favorite">Add To Closet</button>
-                </div>
-
-                {{/each}}
-            </div>
-
+        <div class="col-sm-3">
+          <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}">
+          <button type="button" class="btn btn-dark add-to-closet">Add To Closet</button>
         </div>
 
+        {{/each}}
+      </div>
 
     </div>
+
+
+  </div>
 
 </div>
