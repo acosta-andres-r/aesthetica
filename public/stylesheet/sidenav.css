@@ -82,3 +82,7 @@ a, a:hover, a:focus {
     color: rgb(85, 82, 82);
     background: #fff;
 }
+footer{
+    text-align: center;
+    color: #767a83;
+}
