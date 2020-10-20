@@ -1,5 +1,6 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
+const axios = require("axios");
 // const passport = require("../config/passport");
 
 
@@ -12,7 +13,6 @@ module.exports = function (app) {
     console.log(req.body.search);
 
     //Our PEXELS API code. We pull images from here. 
-    const axios = require("axios");
     let keyword = req.body.search
     // let keyword = req.search.keyword  //"fashion"
     const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=20&page=1";
@@ -80,30 +80,5 @@ module.exports = function (app) {
       })
   });
 
-  // DELETE route for deleting images if user unfavorite the image
-  app.delete("/api/images", function (req, res) {
-    
-    const imageToDelete = {
-      public_id: req.body.public_id,
-      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
-    }
-    
-    db.Image
-    .count({ where: imageToDelete })
-    .then(function (count) {
-
-      if (count != 0) {
-        // Delete image if not exist
-        db.Image.destroy({
-          where: imageToDelete
-        }).then(function (dbImage) {
-          res.json(dbImage);
-        });
-        
-      } else {
-        res.json();
-      }
-    })
-
-  });
+  // // DELETE route is in my_closet.js
 }

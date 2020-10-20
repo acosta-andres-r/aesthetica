@@ -7,17 +7,17 @@
 
             {{!-- Importan UserID to be passed when favorite button is clicked --}}
             {{!--<h1 id="welcome" data-user-id="1">Welcome</h1>--}}
-
-                <h1 class="display-3">My Closet</h1>
-           
-
+            <h1 id="welcome" data-user-id="1">My Closet</h1>
+            <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+            <button type="button" class="btn btn-dark" id="logout">Logout</button>
             <div class="row">
 
                 {{#each photos}}
+                
+                <div class="col-sm-3">
+                    <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}">
+                    <button type="button" class="btn btn-dark remove-from-closet">Remove</button>
 
-                <div>
-                    <img src="{{imageURL}}" alt="" class="w-100">
-                    <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
                 </div>
 
                 {{/each}}
