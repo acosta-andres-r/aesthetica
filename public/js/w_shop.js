@@ -1,11 +1,16 @@
 // Post to retrieve  images from Pexel image URLs
 //Explore button to retrieve all images under the keyword: fashion
 $("#explore").on("click", function() {
+    var userInput = $("#explore-bar").val();
+
+    console.log(userInput)
+
     $.post("/api/explorer", {
-            search: "fashion"
+            search: userInput
         })
         .then((res) => {
             console.log(res);
+
             // If there's an error, log the error
         })
         .catch(err => {
@@ -23,6 +28,7 @@ $(".women").on("click", function() {
         })
         .then((res) => {
             console.log(res);
+
             // If there's an error, log the error
         })
         .catch(err => {

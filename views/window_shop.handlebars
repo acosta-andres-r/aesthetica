@@ -4,12 +4,15 @@
             <div class="col-sm-3">
                 {{> _sidenav }}
             </div>
+        </div>
+        <div class="row" id="pic-holder">
+            <div class="col-sm-3">
+                <h1 id="welcome" data-user-id="1">Welcome</h1>
+            </div>
             <div class="col-sm-9">
                 {{!-- Importan UserID to be passed when favorite button is clicked --}}
-                <h1 id="welcome" data-user-id="1">Welcome</h1>
-                {{!-- Important UserID to be passed when favorite button is clicked --}}
-                <button type="button" class="btn btn-dark" id="explore">Explore</button>
 
+                {{!-- Important UserID to be passed when favorite button is clicked --}}
                 <div class="btn-group" role="group">
                     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,26 +51,25 @@
                             <button class="dropdown-item men" type="button" id="shoes">Shoes</button>
                         </div>
                     </div>
+                        <form class="form-inline my-2 my-lg-0" id="explore-form">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                                id="explore-bar">
+                            <button class="btn btn-outline-success-dark my-2 my-sm-0" id="explore"
+                                type="submit">Explore</button>
+                        </form>
                 </div>
             </div>
-
-            <div class="row">
-
-
-                {{#each photos}}
-
-                <div class="col-sm-3">
-                    <img src="{{imageURL}}" alt="" class="w-100">
-                    <button type="button" class="btn btn-dark" id="favorite">Add To Closet</button>
-                    <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+            <div>
+                <div class="row">
+                    {{#each photos}}
+                    <div class="col-sm-3">
+                        <img src="{{imageURL}}" alt="" class="w-100">
+                        <button type="button" class="btn btn-dark" id="favorite">Add To Closet</button>
+                        <button type="button" class="btn btn-dark" id="unfavorite">Remove</button>
+                    </div>
+                    {{/each}}
                 </div>
-
-                {{/each}}
             </div>
-
         </div>
-
-
     </div>
-
 </div>
