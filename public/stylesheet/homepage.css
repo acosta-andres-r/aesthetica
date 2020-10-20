@@ -75,21 +75,21 @@ ul li a:hover:before
 
 ul li:nth-child(6n+1) a:before
 {
-  background: #FFFFE3;
+  background: #c1c3c7;
 }
 ul li:nth-child(6n+2) a:before
 {
-  background: #E3FFC7;
+  background:#9c9fa5;
 }
 ul li:nth-child(6n+3) a:before
 {
-  background: #C6FFAB;
+  background: #767a83;
 }
 ul li:nth-child(6n+4) a:before
 {
-  background: #A8FF8F;
+  background: #54575d;
 }
 ul li:nth-child(6n+5) a:before
 {
-  background: #8CEF74;
+  background: #323438;
 }

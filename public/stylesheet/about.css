@@ -10,13 +10,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #FFFFE3;
+    background-color: #D8D5D2;
 }
 
 .about-section{
-    background: url(/img/pic.jpg) no-repeat left;
+    background: url(/img/pic1.png) no-repeat left;
     background-size: 55%;
-    background-color: #FFFFE3;
+    background-color: #D8D5D2;
     overflow: hidden;
     padding: 100px 0;
 }
@@ -24,7 +24,7 @@ body{
 .inner-container{
     width: 55%;
     float: right;
-    background-color: #FFFFE3;
+    background-color: #D8D5D2;
     padding: 150px;
 }
 
@@ -36,7 +36,7 @@ body{
 
 .text{
     font-size: 13px;
-    color: #545454;
+    color: #333031;
     line-height: 30px;
     text-align: justify;
     margin-bottom: 40px;
