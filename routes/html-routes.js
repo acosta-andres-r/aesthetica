@@ -26,7 +26,7 @@ module.exports = function (app) {
 
   //make sure to add isAuthenticated
   app.get("/my_closet", (req, res) => {
-    res.render("my_closet", { sidenav: true, js: "sidebar" });
+    res.render("my_closet", { sidenav: true, js: "sidebar", stylesheet: "my_closet" });
   });
 
   //make sure to add isAuthenticated
