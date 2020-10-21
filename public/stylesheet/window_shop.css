@@ -16,15 +16,28 @@ h1 {
     margin-left: 100px;
 }
 
+.searchBtns {
+    margin-bottom: 20px;
+    margin-left: 140px;
+    justify-content: center;
+}
+
 #btnGroupDrop1 {
     margin-bottom: 20px;
     margin-left: 10px;
     justify-content: center;
-    
 }
-.womens{
+
+#btnGroupDrop2 {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    justify-content: center;
+}
+
+.womens {
     margin-left: 140px;
 }
-.add{
+
+.add {
     margin-bottom: 75px;
 }
