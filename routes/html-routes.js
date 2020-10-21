@@ -89,6 +89,46 @@ module.exports = function (app) {
 
   });
 
+  app.get("/window_shop/:gender/:category", (req, res) => {
+
+    //Our PEXELS API code. We pull images from here
+    const axios = require("axios");
+    let keyword = req.params.gender + " " + req.params.category;
+    // let keyword = req.search.keyword  //"fashion"
+    const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=75&page=1";
+    axios
+      .get(baseURL, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          Authorization: process.env.API_KEY
+        }
+      })
+      .then(function (respond) {
+
+
+        //Next page 
+        nextPage = respond.data.next_page;
+        console.log(nextPage);
+
+
+        // Array with photo URLs to send to Browser
+        const photos = respond.data.photos.map((photo) => {
+          return {
+            imageURL: photo.src.large,
+            public_id: photo.id
+          };
+
+
+        });
+        // To send to Browser
+        console.log(photos);
+
+        res.render("window_shop", {stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
+
+      });
+
+  });
   // app.get("/login", (req, res) => {
   //   // If the user already has an account send them to the members page
   //   if (req.user) {
