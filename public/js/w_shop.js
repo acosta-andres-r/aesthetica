@@ -54,7 +54,7 @@ $(".men").on("click", function() {
     // Post to save an image
 $(".add-to-closet").on("click", function() {
 
-    const imageTag = $(this).parent().find("img");
+    const imageTag = $(this).parent().parent().find("img");
 
     // $.get("/api/user_data").then(function (data) { // Uncomment to work with logged in user id
 
