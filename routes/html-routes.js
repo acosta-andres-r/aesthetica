@@ -43,7 +43,7 @@ module.exports = function (app) {
           }
         });
 
-        res.render("my_closet", { photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
+        res.render("my_closet", {stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
       })
   });
 
@@ -83,7 +83,7 @@ module.exports = function (app) {
         // To send to Browser
         console.log(photos);
 
-        res.render("window_shop", { photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
+        res.render("window_shop", {stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
 
       });
 

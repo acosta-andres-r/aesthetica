@@ -10,8 +10,4 @@
   h1{
     font-family: 'Poppins', sans-serif;
     justify-content: center;
-    font-weight: bolder;
-  }
- #logout{
-    justify-content: flex-end;
   }
