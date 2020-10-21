@@ -1,5 +1,4 @@
-<
-<div class="wrapper">
+< <div class="wrapper">
   <div class="container">
     <div class="row">
       <div class="col-sm-3">
@@ -9,12 +8,14 @@
         {{!-- Importan UserID to be passed when favorite button is clicked --}}
         <h1 class="display-3" id="welcome" data-user-id="1">Window Shop</h1>
         {{!-- Important UserID to be passed when favorite button is clicked --}}
-        
+
         <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Women's
-          </button>
+          <div class="womens">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Women's
+            </button>
+          </div>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
             <button class="dropdown-item women" type="button" id="Apparel"> All Apparel</button>
             <button class="dropdown-item women" type="button" id="Top">Tops/Shirts</button>
@@ -59,7 +60,10 @@
 
         <div class="col-sm-3">
           <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}">
-          <button type="button" class="btn btn-dark add-to-closet">Add To Closet</button>
+          <div class="add">
+            <button type="button" class="btn btn-dark add-to-closet">Add To Closet</button>
+          </div>
+
         </div>
 
         {{/each}}
@@ -70,4 +74,4 @@
 
   </div>
 
-</div>
+  </div>
