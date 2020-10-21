@@ -1,25 +1,21 @@
-<<<<<<< HEAD
-#welcome {
-    color: red;
-}
-=======
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
-  }
-  h1{
+}
+
+h1 {
     font-family: 'Poppins', sans-serif;
     justify-content: center;
-  }
-  .row{
-      margin-left: 100px;
-  }
-  #btnGroupDrop1{
-      margin-left: 10px;
-  }
->>>>>>> 5d86fc076796414e55760e18952ba2658307eac1
+}
+
+.row {
+    margin-left: 100px;
+}
+
+#btnGroupDrop1 {
+    margin-left: 10px;
+}
