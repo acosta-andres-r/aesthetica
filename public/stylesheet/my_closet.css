@@ -10,4 +10,9 @@
   h1{
     font-family: 'Poppins', sans-serif;
     justify-content: center;
+    margin-left: 400px;
   }
+
+.mypics{
+  margin-left: 200px;
+}

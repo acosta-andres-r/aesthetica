@@ -17,5 +17,14 @@ h1 {
 }
 
 #btnGroupDrop1 {
+    margin-bottom: 20px;
     margin-left: 10px;
+    justify-content: center;
+    
+}
+.womens{
+    margin-left: 140px;
+}
+.add{
+    margin-bottom: 75px;
 }
