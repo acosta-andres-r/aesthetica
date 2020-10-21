@@ -21,7 +21,7 @@ module.exports = function (app) {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          Authorization: "563492ad6f9170000100000199d9e9a819a942398aa8d5dd20a55d0d"
+          Authorization: process.env.API_KEY
         }
       })
       .then(function (respond) {
