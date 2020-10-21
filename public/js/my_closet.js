@@ -20,4 +20,9 @@ $(".remove-from-closet").on("click", function () {
         .catch(err => {
             console.log(err);
         });
-})
+});
+
+$(".add-note").on("click", function () {
+    console.log("saving note...");
+
+});
