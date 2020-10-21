@@ -11,3 +11,9 @@
     font-family: 'Poppins', sans-serif;
     justify-content: center;
   }
+  .row{
+      margin-left: 100px;
+  }
+  #btnGroupDrop1{
+      margin-left: 10px;
+  }
