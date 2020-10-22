@@ -34,45 +34,48 @@ module.exports = function(app) {
     app.get("/my_closet", (req, res) => {
 
         console.log(req.user);
+        if (req.user != false) {
 
-        db.Image.findAll({
-                where: {
-                    UserId: req.user.id || 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
-                },
-                include: [db.Comment]
-            })
-            .then(function(dbImage) {
+            db.Image.findAll({
+                    where: {
+                        UserId: req.user.id || 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+                    },
+                    include: [db.Comment]
+                })
+                .then(function(dbImage) {
 
-                // Array with photo URLs to send to Browser
-                const photos = dbImage.map((photo) => {
+                    // Array with photo URLs to send to Browser
+                    const photos = dbImage.map((photo) => {
 
-                    if (!photo.dataValues.Comments[0]) {
-                        console.log(photo.dataValues.Comments[0]);
+                        if (!photo.dataValues.Comments[0]) {
+                            console.log(photo.dataValues.Comments[0]);
 
-                        return {
-                            imageURL: photo.dataValues.imageURL,
-                            public_id: photo.dataValues.public_id,
-                            id: photo.dataValues.id,
-                            note: "",
-                            "note-id": ""
+                            return {
+                                imageURL: photo.dataValues.imageURL,
+                                public_id: photo.dataValues.public_id,
+                                id: photo.dataValues.id,
+                                note: "",
+                                "note-id": ""
+                            }
+                        } else {
+                            console.log(photo.dataValues.Comments[0].dataValues.id);
+                            return {
+                                imageURL: photo.dataValues.imageURL,
+                                public_id: photo.dataValues.public_id,
+                                id: photo.dataValues.id,
+                                note: photo.dataValues.Comments[0].dataValues.content,
+                                "note-id": photo.dataValues.Comments[0].dataValues.id
+                            }
                         }
-                    } else {
-                        console.log(photo.dataValues.Comments[0].dataValues.id);
-                        return {
-                            imageURL: photo.dataValues.imageURL,
-                            public_id: photo.dataValues.public_id,
-                            id: photo.dataValues.id,
-                            note: photo.dataValues.Comments[0].dataValues.content,
-                            "note-id": photo.dataValues.Comments[0].dataValues.id
-                        }
-                    }
-                });
+                    });
 
-                // console.log(photos);
+                    // console.log(photos);
 
-                res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
-            })
-
+                    res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
+                })
+        } else {
+            res.redirect("/login")
+        }
     });
 
     //make sure to add isAuthenticated
