@@ -1,28 +1,12 @@
 // Post to retrieve  images from Pexel image URLs
 //Explore button to retrieve all images under the keyword: fashion
-$("#explore").on("click", function() {
-    var userInput = $("#explore-bar").val();
 
-    // console.log(userInput)
-
-    $.post("/api/explorer", {
-            search: userInput
-        })
-        .then((res) => {
-            console.log(res);
-
-            // If there's an error, log the error
-        })
-        .catch(err => {
-            console.log(err);
-        });
-})
 
 // //Buttons for women's apparel searches :
 $(".women").on("click", function() {
     var userClick = "women's" + " " + $(this).attr('id')
-    // console.log("click")
-    // console.log(userClick)
+        // console.log("click")
+        // console.log(userClick)
     $.post("/api/explorer", {
             search: userClick
         })
@@ -38,8 +22,8 @@ $(".women").on("click", function() {
 
 $(".men").on("click", function() {
         var userClick = "men's" + " " + $(this).attr('id')
-        // console.log("click")
-        // console.log(userClick)
+            // console.log("click")
+            // console.log(userClick)
         $.post("/api/explorer", {
                 search: userClick
             })
