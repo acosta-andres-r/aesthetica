@@ -13,14 +13,17 @@
                 {{#each photos}}
 
                 <div class="col-sm-3">
-                    <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}">
+                    <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}" data-image-id="{{id}}">
                     <button type="button" class="btn btn-dark remove-from-closet">Remove</button>
                     <hr>
                     <div class="input-group">
-                        <textarea class="form-control notes" aria-label="With textarea"></textarea>
+                        <textarea class="form-control notes" aria-label="With textarea" data-note-id="{{note-id}}">{{note}}</textarea>
                     </div>
                     <button type="button" class="btn btn-outline-secondary btn-sm add-note">Add Note</button>
                     {{!-- <button class="btn"><i class="fa fa-trash"></i></button> --}}
+                    
+                    {{!-- Delete button to remove comment from db --}}
+                    <button type="button" class="btn btn-outline-secondary btn-sm delete-note">Delete Note</button>
                 </div>
 
                 {{/each}}
