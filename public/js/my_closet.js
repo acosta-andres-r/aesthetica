@@ -28,19 +28,43 @@ $(".add-note").on("click", function () {
     const textArea = $(this).parent().find("textarea");
     const imageTag = $(this).parent().find("img");
 
-    $.post("/api/comments", {
-        content: textArea.val(), 
-        ImageId: imageTag.data("image-id"),
-        UserId: 1
-    })
-        .then((res) => {
-            // console.log(res);
-            window.location.replace("/my_closet");
-            // If there's an error, log the error
+    if (!textArea.data("note-id")) {
+        // Add new note to db
+        $.post("/api/comments", {
+            content: textArea.val(),
+            ImageId: imageTag.data("image-id"),
+            UserId: 1
         })
-        .catch(err => {
-            console.log(err);
-        });
+            .then((res) => {
+                // console.log(res);
+                window.location.replace("/my_closet");
+                // If there's an error, log the error
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    } else {
+        // Update note in db
+        $.ajax({
+            method: "PUT",
+            url: "/api/comments",
+            // dataType: 'json',
+            data: {
+                content: textArea.val(),
+                // ImageId: imageTag.data("image-id"),
+                id: textArea.data("note-id")
+            }
+        })
+            .then((res) => {
+                // console.log(res);
+                window.location.replace("/my_closet");
+                // If there's an error, log the error
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
 
 });
 
