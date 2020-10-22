@@ -5,12 +5,14 @@ const axios = require("axios");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
-module.exports = function(app) {
+module.exports = function (app) {
     app.get("/", (req, res) => {
         if (req.user) {
+
             res.redirect("/my_closet");
+        } else {
+            res.render("index", { stylesheet: "homepage" });
         }
-        res.render("index", { stylesheet: "homepage" });
     });
 
     app.get("/login", (req, res) => {
@@ -33,16 +35,16 @@ module.exports = function(app) {
     //make sure to add isAuthenticated
     app.get("/my_closet", isAuthenticated, (req, res) => {
 
-        console.log(req.user);
-        if (req.isAuthenticated()) {
+        // console.log(req.user);
+        if (req.user != false) {
 
             db.Image.findAll({
-                    where: {
-                        UserId: req.user.id || 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
-                    },
-                    include: [db.Comment]
-                })
-                .then(function(dbImage) {
+                where: {
+                    UserId: req.user.id || 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+                },
+                include: [db.Comment]
+            })
+                .then(function (dbImage) {
 
                     // Array with photo URLs to send to Browser
                     const photos = dbImage.map((photo) => {
@@ -93,7 +95,7 @@ module.exports = function(app) {
                     Authorization: process.env.API_KEY
                 }
             })
-            .then(function(respond) {
+            .then(function (respond) {
 
 
                 //Next page 
@@ -134,7 +136,7 @@ module.exports = function(app) {
                     Authorization: process.env.API_KEY
                 }
             })
-            .then(function(respond) {
+            .then(function (respond) {
 
 
                 //Next page 
