@@ -3,7 +3,7 @@
 <br>
 
 ## Description
-Aesthetica is a mobile responsive, interactive app that bridges fashion and community. Users can build a unique profile secured with a username and password. We tackle the hassle of filtering products based on user’s shopping preferences which can then be pinned to their profile. Aesthetica stands out amongst its competitors by adding a community. Users can talk to like-minded shoppers by leaving comments on their posts.
+Aesthetica is a user friendly and interactive app that bridges fashion and community. Users can build a unique profile secured with a username and password. We tackle the hassle of filtering products based on user’s shopping preferences which can then be pinned to their profile. Aesthetica stands out amongst its competitors by adding a community. Users can talk to like-minded shoppers by leaving comments on their posts.
 
 ## Usage
 <ul>
