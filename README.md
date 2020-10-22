@@ -16,7 +16,22 @@ Aesthetica is a mobile responsive, interactive app that bridges fashion and comm
 <img src="./public/img/home.png" alt="home">
 <img src="./public/img/join.png" alt="join">
 <img src="./public/img/shop.png" alt="shop">
+<br>
 
+## Key points in building this application:
+<ul>
+  <li>utilizes Node & Express server</li>
+  <li>utilizes Handlebars.js
+  <li>backed by MySQL database with a Sequelize ORM</li>
+  <li>utilizes GET & POST routes for retrieving and adding new data</li>
+  <li>deployed with Heroku</li>
+  <li>utilizes a technology that is new to the creators<br>
+    (incorporates Twilio to send users a welcome message once signed up for the app)</li>
+  <li>contains a polished front end/UI</li>
+  <li>utilizes a folder structure that meets the MVC paradigm</li>
+  <li>utilizes quality coding standards (indentation, scoping, naming)</li>
+  <li>API key is protected in Node with environmental variables</li>
+</ul>
 
 ## Creators
 Visit the repositories of the Aesthetica creators:<br>
