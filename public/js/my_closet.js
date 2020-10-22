@@ -3,40 +3,68 @@ $(".remove-from-closet").on("click", function () {
     const imageTag = $(this).parent().find("img");
 
     const textArea = $(this).parent().find("textarea");
+    
+    console.log("here 1");
+    console.log(textArea.data("note-id"));
+    
+    if (textArea.data("note-id")) {
 
-    $.ajax({
-        method: "DELETE",
-        url: "/api/comments",
-        dataType: 'json',
-        data: {
-            commentId: textArea.data("note-id")
-        }
-    })
-        .then(function (response) {
-
-            $.ajax({
-                method: "DELETE",
-                url: "/api/images",
-                dataType: 'json',
-                data: {
-                    imageURL: imageTag.attr("src"),
-                    public_id: imageTag.data("id"),
-                    // UserId: data.id // Uncomment to work with logged in user id
-                    UserId: $("#welcome").data("user-id") // Delete line to work with logged in user id
-                }
-            })
-                .then(function (response) {
-                    // console.log(response);
-                    window.location.replace("/my_closet");
-                })
-                .catch(err => {
-                    console.log(err);
-                });
-
+        $.ajax({
+            method: "DELETE",
+            url: "/api/comments",
+            dataType: 'json',
+            data: {
+                commentId: textArea.data("note-id")
+            }
         })
-        .catch(err => {
-            console.log(err);
-        });
+            .then(function (response) {
+
+                $.ajax({
+                    method: "DELETE",
+                    url: "/api/images",
+                    dataType: 'json',
+                    data: {
+                        imageURL: imageTag.attr("src"),
+                        public_id: imageTag.data("id"),
+                        // UserId: data.id // Uncomment to work with logged in user id
+                        UserId: $("#welcome").data("user-id") // Delete line to work with logged in user id
+                    }
+                })
+                    .then(function (response) {
+                        // console.log(response);
+                        window.location.replace("/my_closet");
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+
+            })
+            .catch(err => {
+                console.log("here");
+                console.log(err);
+            });
+
+    } else {
+
+        $.ajax({
+            method: "DELETE",
+            url: "/api/images",
+            dataType: 'json',
+            data: {
+                imageURL: imageTag.attr("src"),
+                public_id: imageTag.data("id"),
+                // UserId: data.id // Uncomment to work with logged in user id
+                UserId: $("#welcome").data("user-id") // Delete line to work with logged in user id
+            }
+        })
+            .then(function (response) {
+                // console.log(response);
+                window.location.replace("/my_closet");
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
 
 });
 
