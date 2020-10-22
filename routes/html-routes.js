@@ -31,7 +31,7 @@ module.exports = function(app) {
     });
 
     //make sure to add isAuthenticated
-    app.get("/my_closet", (req, res) => {
+    app.get("/my_closet", isAuthenticated, (req, res) => {
 
         console.log(req.user);
         if (req.user != false) {
@@ -79,7 +79,7 @@ module.exports = function(app) {
     });
 
     //make sure to add isAuthenticated
-    app.get("/window_shop", (req, res) => {
+    app.get("/window_shop", isAuthenticated, (req, res) => {
 
         //Our PEXELS API code. We pull images from here
         let keyword = "fashion";
@@ -120,7 +120,7 @@ module.exports = function(app) {
     });
 
     //make sure to add isAuthenticated
-    app.get("/window_shop/:gender/:category", (req, res) => {
+    app.get("/window_shop/:gender/:category", isAuthenticated, (req, res) => {
 
         //Our PEXELS API code. We pull images from here
         let keyword = req.params.gender + " " + req.params.category;
