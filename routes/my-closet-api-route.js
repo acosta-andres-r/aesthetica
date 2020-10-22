@@ -5,20 +5,6 @@ const db = require("../models");
 
 module.exports = function (app) {
 
-  // Get route to grab all the saved images
-  app.get("/api/images", function (req, res) {
-
-    // db.Image.findAll({
-    //   where: {
-    //     UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
-    //   }
-    // })
-    //   .then(function (dbImage) {
-    //     console.log(dbImage);
-    //     res.json(dbImage);
-    //   })
-  });
-
   // DELETE route for deleting images if user unfavorite the image
   app.delete("/api/images", function (req, res) {
 
@@ -38,7 +24,7 @@ module.exports = function (app) {
             where: imageToDelete
           }).then(function (dbImage) {
             res.json(dbImage);
-            res.redirect("/my_closet");
+            // res.redirect("/my_closet");
           });
 
         } else {
@@ -47,4 +33,75 @@ module.exports = function (app) {
       })
 
   });
+
+
+  // POST route for saving a comment
+  app.post("/api/comments", function (req, res) {
+
+    const commentToSave = {
+      content: req.body.content,
+      ImageId: req.body.ImageId,
+      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+    }
+
+    db.Comment
+      .create(commentToSave)
+      .then(function (dbContent) {
+
+        // console.log(dbContent);
+        res.json(dbContent);
+      });
+
+  });
+
+  // DELETE route for deleting images if user unfavorite the image
+  app.delete("/api/comments", function (req, res) {
+
+    const commentToDelete = {
+      id: req.body.commentId
+    }
+
+    db.Comment
+      .count({ where: commentToDelete })
+      .then(function (count) {
+
+        if (count != 0) {
+          // Delete image if not exist
+          db.Comment.destroy({
+            where: commentToDelete
+          }).then(function (dbContent) {
+            res.json(dbContent);
+            // res.redirect("/my_closet");
+          });
+
+        } else {
+          res.json();
+        }
+      })
+
+  });
+
+  // PUT route for updating posts
+  app.put("/api/comments", function (req, res) {
+
+    console.log(req.body.content);
+
+    const commentToUpdate = {
+      content: req.body.content,
+      // ImageId: req.body.ImageId,
+      // UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+    }
+
+    db.Comment
+      .update(
+        commentToUpdate,
+        {
+          where: {
+            id: req.body.id // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+          }
+        }).then(function (dbComment) {
+          res.json(dbComment);
+        });
+  });
+
 }
