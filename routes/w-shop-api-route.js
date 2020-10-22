@@ -67,6 +67,9 @@ module.exports = function (app) {
 
         if (count === 0) {
           // Save image if not exist
+
+          console.log(imageToSave);
+
           db.Image
             .create(imageToSave)
             .then(function (dbImage) {

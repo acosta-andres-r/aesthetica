@@ -30,20 +30,39 @@ module.exports = function (app) {
     db.Image.findAll({
       where: {
         UserId: 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
-      }
+      },
+      include: [db.Comment]
     })
       .then(function (dbImage) {
-        console.log(dbImage);
 
         // Array with photo URLs to send to Browser
         const photos = dbImage.map((photo) => {
-          return {
-            imageURL: photo.imageURL,
-            public_id: photo.public_id
+
+          if (!photo.dataValues.Comments[0]) {
+            console.log(photo.dataValues.Comments[0]);
+
+            return {
+              imageURL: photo.dataValues.imageURL,
+              public_id: photo.dataValues.public_id,
+              id: photo.dataValues.id,
+              note: "",
+              "note-id": ""
+            }
+          } else {
+            console.log(photo.dataValues.Comments[0].dataValues.id);
+            return {
+              imageURL: photo.dataValues.imageURL,
+              public_id: photo.dataValues.public_id,
+              id: photo.dataValues.id,
+              note: photo.dataValues.Comments[0].dataValues.content,
+              "note-id": photo.dataValues.Comments[0].dataValues.id
+            }
           }
         });
 
-        res.render("my_closet", {stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
+        // console.log(photos);
+
+        res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
       })
   });
 
@@ -68,7 +87,7 @@ module.exports = function (app) {
 
         //Next page 
         nextPage = respond.data.next_page;
-        console.log(nextPage);
+        // console.log(nextPage);
 
 
         // Array with photo URLs to send to Browser
@@ -81,9 +100,9 @@ module.exports = function (app) {
 
         });
         // To send to Browser
-        console.log(photos);
+        // console.log(photos);
 
-        res.render("window_shop", {stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
+        res.render("window_shop", { stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
 
       });
 
@@ -109,7 +128,7 @@ module.exports = function (app) {
 
         //Next page 
         nextPage = respond.data.next_page;
-        console.log(nextPage);
+        // console.log(nextPage);
 
 
         // Array with photo URLs to send to Browser
@@ -122,9 +141,9 @@ module.exports = function (app) {
 
         });
         // To send to Browser
-        console.log(photos);
+        // console.log(photos);
 
-        res.render("window_shop", {stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
+        res.render("window_shop", { stylesheet: "window_shop", photos: photos, sidenav: true, js: "sidebar", js: "w_shop" });
 
       });
 

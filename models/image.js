@@ -26,7 +26,14 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
+
+    // Associating Image with Comment
+    // When an Image is deleted, also delete any associated Comment
+    Image.hasMany(models.Comment, {
+      onDelete: "cascade"
+    });
   };
+
 
   return Image;
 };
