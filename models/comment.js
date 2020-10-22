@@ -18,9 +18,7 @@ module.exports = function (sequelize, DataTypes) {
           allowNull: false
         }
       });
-    };
-    
-    Comment.associate = function(models) {
+
       // We're saying that a Comment should belong to an Image
       // An Comment can't be created without an Image due to the foreign key constraint (allowNull)
       Comment.belongsTo(models.Image, {
@@ -29,6 +27,6 @@ module.exports = function (sequelize, DataTypes) {
         }
       });
     };
-  
+     
     return Comment;
   };

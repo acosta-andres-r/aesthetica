@@ -1,6 +1,7 @@
 // Requiring path to so we can use relative routes to our HTML files
 //const path = require("path");
 const db = require("../models")
+const axios = require("axios");
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -27,9 +28,11 @@ module.exports = function (app) {
   //make sure to add isAuthenticated
   app.get("/my_closet", (req, res) => {
 
+    console.log(req.user);
+
     db.Image.findAll({
       where: {
-        UserId: 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+        UserId: req.user.id || 1 // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
       },
       include: [db.Comment]
     })
@@ -64,13 +67,13 @@ module.exports = function (app) {
 
         res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
       })
+
   });
 
   //make sure to add isAuthenticated
-  app.get("/window_shop", (req, res) => {
+  app.get("/window_shop",  (req, res) => {
 
     //Our PEXELS API code. We pull images from here
-    const axios = require("axios");
     let keyword = "fashion";
     // let keyword = req.search.keyword  //"fashion"
     const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=20&page=1";
@@ -108,10 +111,10 @@ module.exports = function (app) {
 
   });
 
+   //make sure to add isAuthenticated
   app.get("/window_shop/:gender/:category", (req, res) => {
 
     //Our PEXELS API code. We pull images from here
-    const axios = require("axios");
     let keyword = req.params.gender + " " + req.params.category;
     // let keyword = req.search.keyword  //"fashion"
     const baseURL = "https://api.pexels.com/v1/search?query=" + keyword + "&per_page=75&page=1";
@@ -148,17 +151,4 @@ module.exports = function (app) {
       });
 
   });
-  // app.get("/login", (req, res) => {
-  //   // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     res.redirect("/members");
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
-
-  // // Here we've add our isAuthenticated middleware to this route.
-  // // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/members", isAuthenticated, (req, res) => {
-  //   res.sendFile(path.join(__dirname, "../public/members.html"));
-  // });
 };
