@@ -1,16 +1,23 @@
 # Aesthetica
+<br>
+<a href="https://secure-ocean-28347.herokuapp.com/" data-text="Aesthetica">Click to Visit Aesthetica</a>
+<br>
 
 ## Description
 Aesthetica is a mobile responsive, interactive app that bridges fashion and community. Users can build a unique profile secured with a username and password. We tackle the hassle of filtering products based on user’s shopping preferences which can then be pinned to their profile. Aesthetica stands out amongst its competitors by adding a community. Users can talk to like-minded shoppers by leaving comments on their posts.
 
 ## Usage
-***!HEROKU LINK GOES HERE!***
-<br><br><ul>
+<ul>
 <li>Navigate the homepage to create a personal profile.</li>
 <li>Browse through the window shopping content and add your favorite images to your own virtual closet.</li>
   <li>Don't be shy to join the conversation and connect with others that shop similar styles.</li>
-<br><br></ul>
-***!COMPLETED APP SCREEN SHOTS &/OR video walkthrough GO HERE!***
+</ul>
+<br><br>
+
+<img src="./public/img/home.png" alt="home">
+<img src="./public/img/join.png" alt="join">
+<img src="./public/img/shop.png" alt="shop">
+
 
 ## Creators
 Visit the repositories of the Aesthetica creators:<br>
