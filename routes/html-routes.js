@@ -34,7 +34,7 @@ module.exports = function(app) {
     app.get("/my_closet", (req, res) => {
 
         console.log(req.user);
-        if (req.user != false) {
+        if (req.user) {
 
             db.Image.findAll({
                     where: {
