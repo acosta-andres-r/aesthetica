@@ -11,7 +11,7 @@ module.exports = function (app) {
     const imageToDelete = {
       imageURL: req.body.imageURL,
       public_id: req.body.public_id,
-      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+      UserId: req.user.id || req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
     }
 
     db.Image
@@ -41,7 +41,7 @@ module.exports = function (app) {
     const commentToSave = {
       content: req.body.content,
       ImageId: req.body.ImageId,
-      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+      UserId: req.user.id || req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
     }
 
     db.Comment
@@ -88,8 +88,6 @@ module.exports = function (app) {
 
     const commentToUpdate = {
       content: req.body.content,
-      // ImageId: req.body.ImageId,
-      // UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
     }
 
     db.Comment
@@ -97,7 +95,7 @@ module.exports = function (app) {
         commentToUpdate,
         {
           where: {
-            id: req.body.id // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+            id: req.body.id 
           }
         }).then(function (dbComment) {
           res.json(dbComment);
