@@ -58,21 +58,21 @@ $(".add-to-closet").on("click", function() {
     // })  // Uncomment to work with logged in user id
 })
 
-$("#unfavorite").on("click", function() {
+// $("#unfavorite").on("click", function() {
 
-    $.ajax({
-            method: "DELETE",
-            url: "/api/images/",
-            dataType: 'json',
-            data: {
-                public_id: "3317434",
-                UserId: $("#welcome").data("user-id")
-            }
-        })
-        .then(function(response) {
-            console.log(response);
-        });
-})
+//     $.ajax({
+//             method: "DELETE",
+//             url: "/api/images/",
+//             dataType: 'json',
+//             data: {
+//                 public_id: "3317434",
+//                 UserId: $("#welcome").data("user-id")
+//             }
+//         })
+//         .then(function(response) {
+//             console.log(response);
+//         });
+// })
 
 $("#logout").on("click", function() {
     $.get("/logout")

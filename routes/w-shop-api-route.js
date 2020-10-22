@@ -29,7 +29,7 @@ module.exports = function (app) {
 
         //Next page 
         nextPage = respond.data.next_page;
-        console.log(nextPage);
+        // console.log(nextPage);
 
 
         // Array with photo URLs to send to Browser
@@ -42,7 +42,7 @@ module.exports = function (app) {
 
         });
         // To send to Browser
-        console.log(photos);
+        // console.log(photos);
 
         res.json({
           photos: photos
@@ -57,7 +57,7 @@ module.exports = function (app) {
     const imageToSave = {
       imageURL: req.body.imageURL,
       public_id: req.body.public_id,
-      UserId: req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
+      UserId: req.user.id || req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
     }
 
     // Find out if image already exist for the user
@@ -68,7 +68,7 @@ module.exports = function (app) {
         if (count === 0) {
           // Save image if not exist
 
-          console.log(imageToSave);
+          // console.log(imageToSave);
 
           db.Image
             .create(imageToSave)
