@@ -9,7 +9,7 @@ Aesthetica is a user friendly and interactive app that bridges fashion and commu
 <ul>
 <li>Navigate the homepage to create a personal profile.</li>
 <li>Browse through the window shopping content and add your favorite images to your own virtual closet.</li>
-  <li>Don't be shy to join the conversation and connect with others that shop similar styles.</li>
+  <li>Add, update and delete notes on each picture in your closet.</li>
 </ul>
 <br><br>
 
@@ -25,8 +25,7 @@ Aesthetica is a user friendly and interactive app that bridges fashion and commu
   <li>backed by MySQL database with a Sequelize ORM</li>
   <li>utilizes GET & POST routes for retrieving and adding new data</li>
   <li>deployed with Heroku</li>
-  <li>utilizes a technology that is new to the creators<br>
-    (incorporates Twilio to send users a welcome message once signed up for the app)</li>
+  <li>utilizes a technology that is new to the creators</li>
   <li>contains a polished front end/UI</li>
   <li>utilizes a folder structure that meets the MVC paradigm</li>
   <li>utilizes quality coding standards (indentation, scoping, naming)</li>
