@@ -1,37 +1,38 @@
 <div class="wrapper">
-    <div class="mypics">
-        <div>
-            {{> _sidenav }}
+
+    {{> _sidenav }}
+
+    <div id="content">
+
+        <div class="toggle-btn">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button>
         </div>
-        <div>
 
-            {{!-- Importan UserID to be passed when favorite button is clicked --}}
-            {{!--<h1 id="welcome" data-user-id="1">Welcome</h1>--}}
-            <h1 class="display-3" id="welcome" data-user-id="1">My Closet</h1>
-            <div class="row">
+        {{!-- Importan UserID to be passed when favorite button is clicked --}}
+        <h1 class="display-3" id="welcome" data-user-id="1">My Closet</h1>
+        <div class="row">
 
-                {{#each photos}}
+            {{#each photos}}
 
-                <div class="col-sm-3">
-                    <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}" data-image-id="{{id}}">
-                    <button type="button" class="btn btn-dark remove-from-closet">Remove</button>
-                    <hr>
-                    <div class="input-group">
-                        <textarea class="form-control notes" aria-label="With textarea" data-note-id="{{note-id}}">{{note}}</textarea>
-                    </div>
-                    <button type="button" class="btn btn-outline-secondary btn-sm add-note">Add Note</button>
-                    {{!-- <button class="btn"><i class="fa fa-trash"></i></button> --}}
-                    
-                    {{!-- Delete button to remove comment from db --}}
-                    <button type="button" class="btn btn-outline-secondary btn-sm delete-note">Delete Note</button>
+            <div class="col-sm-3">
+                <img src="{{imageURL}}" alt="" class="w-100" data-id="{{public_id}}" data-image-id="{{id}}">
+                <button type="button" class="btn btn-dark remove-from-closet">Remove</button>
+                <hr>
+                <div class="input-group">
+                    <textarea class="form-control notes" aria-label="With textarea"
+                        data-note-id="{{note-id}}">{{note}}</textarea>
                 </div>
+                <button type="button" class="btn btn-outline-secondary btn-sm add-note">Add Note</button>
 
-                {{/each}}
-
-
+                {{!-- Delete button to remove comment from db --}}
+                <button type="button" class="btn btn-outline-secondary btn-sm delete-note">Delete Note</button>
             </div>
 
+            {{/each}}
         </div>
     </div>
-
 </div>
