@@ -7,12 +7,12 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function (app) {
     app.get("/", (req, res) => {
-        if (req.user) {
+        // if (req.user) {
 
-            res.redirect("/my_closet");
-        } else {
+        //     res.redirect("/my_closet");
+        // } else {
             res.render("index", { stylesheet: "homepage" });
-        }
+        // }
     });
 
     app.get("/login", (req, res) => {
@@ -73,7 +73,7 @@ module.exports = function (app) {
 
                     // console.log(photos);
 
-                    res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js: "sidebar", js: "my_closet" });
+                    res.render("my_closet", { stylesheet: "my_closet", photos: photos, sidenav: true, js1: "sidebar", js: "my_closet" });
                 })
         } else {
             res.redirect("/login")
