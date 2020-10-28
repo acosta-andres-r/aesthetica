@@ -1,54 +1,3 @@
-.wrapper {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-}
-
-
-#sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
-}
-
-.btn-dark {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-img {
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-#sidebar.active {
-    margin-left: -250px;
-}
-
-#sidebarCollapse {
-    background-color: rgb(31, 31, 31);
-    border: black;
-}
-
-a {
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-}
-
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 body {
@@ -56,6 +5,14 @@ body {
     background: #fafafa;
 }
 
+img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+a {
+    text-align: center;
+}
 
 a, a:hover, a:focus {
     color: inherit;
@@ -63,10 +20,42 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+footer{
+    text-align: center;
+    color: #767a83;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.btn-dark {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.toggle-btn {
+    margin: 15px 0 0 15px;
+}
+
 #sidebar {
+    width: 250px;
+    top: 0;
+    left: 0;
     background-color: rgba(100, 99, 99, 0.5);
     color: #fff;
     transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
 }
 
 #sidebar .sidebar-header {
@@ -82,7 +71,12 @@ a, a:hover, a:focus {
     color: rgb(85, 82, 82);
     background: #fff;
 }
-footer{
-    text-align: center;
-    color: #767a83;
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
 }
