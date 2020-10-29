@@ -1,14 +1,8 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
-
-img {
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
+h2 {
+    padding: 15px;
+    text-align: center;
+  }
 
 a {
     text-align: center;
@@ -29,20 +23,6 @@ footer{
     display: flex;
     width: 100%;
     align-items: stretch;
-}
-
-.btn-dark {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.row{
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.toggle-btn {
-    margin: 15px 0 0 15px;
 }
 
 #sidebar {
