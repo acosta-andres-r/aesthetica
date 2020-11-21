@@ -13,7 +13,7 @@ module.exports = function(app) {
             public_id: req.body.public_id,
             UserId: req.user.id || req.body.UserId // IMPORTANT: this value may be taken during isAuthenticated or save in a welcome h1 tag
         }
-        console.log(req.user.id)
+        // console.log(req.user.id)
         db.Image
             .count({ where: imageToDelete })
             .then(function(count) {
@@ -84,7 +84,7 @@ module.exports = function(app) {
     // PUT route for updating posts
     app.put("/api/comments", function(req, res) {
 
-        console.log(req.body.content);
+        // console.log(req.body.content);
 
         const commentToUpdate = {
             content: req.body.content,

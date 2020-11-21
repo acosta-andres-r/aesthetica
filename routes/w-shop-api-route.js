@@ -75,7 +75,7 @@ module.exports = function(app) {
                         .create(imageToSave)
                         .then(function(dbImage) {
 
-                            console.log(dbImage);
+                            // console.log(dbImage);
                             res.json(dbImage);
                         });
                 } else {

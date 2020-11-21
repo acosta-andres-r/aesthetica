@@ -4,8 +4,8 @@ $(".remove-from-closet").on("click", function () {
 
     const textArea = $(this).parent().find("textarea");
     
-    console.log("here 1");
-    console.log(textArea.data("note-id"));
+    // console.log("here 1");
+    // console.log(textArea.data("note-id"));
     
     if (textArea.data("note-id")) {
 
@@ -40,7 +40,7 @@ $(".remove-from-closet").on("click", function () {
 
             })
             .catch(err => {
-                console.log("here");
+                // console.log("here");
                 console.log(err);
             });
 

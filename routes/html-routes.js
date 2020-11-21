@@ -50,7 +50,7 @@ module.exports = function (app) {
                     const photos = dbImage.map((photo) => {
 
                         if (!photo.dataValues.Comments[0]) {
-                            console.log(photo.dataValues.Comments[0]);
+                            // console.log(photo.dataValues.Comments[0]);
 
                             return {
                                 imageURL: photo.dataValues.imageURL,
@@ -60,7 +60,7 @@ module.exports = function (app) {
                                 "note-id": ""
                             }
                         } else {
-                            console.log(photo.dataValues.Comments[0].dataValues.id);
+                            // console.log(photo.dataValues.Comments[0].dataValues.id);
                             return {
                                 imageURL: photo.dataValues.imageURL,
                                 public_id: photo.dataValues.public_id,
