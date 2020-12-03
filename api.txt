@@ -1,3 +1,0 @@
-What do we need from our API Keys?
-
-1. We need product description, price, and images  
